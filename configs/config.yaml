@@ -1,0 +1,53 @@
+data:
+  img_dir:  'path/to/your/images'
+  metas_path:  'path/to/your/csv_file (e.g. gid_filtered_subset_pair.csv)'
+  img:
+    img_size: 256
+    color_jitter: 0.4
+    interpolation: 'bilinear'
+
+  text:
+    max_seq_len: 77
+
+model:
+  dino_path: 'path/to/dino_vitbase16_pretrain.pth'
+  contrast_temperature: 0.07
+
+  group_vit:
+    embed_dim: 768
+    num_heads: [ 8, 8 ]
+    embed_factors: [ 1, 1 ]
+    depths: [ 6, 6 ]
+    num_group_tokens: [ 64, 0 ]
+    num_output_groups: [ 8 ]
+    drop_rate: 0.0
+    drop_path_rate: 0.1
+    patch_norm: False
+
+  text_encoder:
+    context_length: 77
+    width: 768
+    layers: 6
+    vocab_size: 49408
+    pretrained: True
+    fixed: True #false
+
+train:
+  batch_size: 64
+  start_epoch: 0
+  epochs: 30
+  warmup_epochs: 2
+  base_lr: 6.4e-4
+  weight_decay: 0.05
+  warmup_lr: 1.6e-5
+  min_lr: 1.6e-4
+  clip_grad: 5.0
+  accumulation_steps: 0
+
+  lr_scheduler:
+    name: cosine
+
+  optimizer:
+    name: adamw
+    eps: 1e-8
+    betas: [ 0.9, 0.999 ]
