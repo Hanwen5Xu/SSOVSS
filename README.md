@@ -2,9 +2,9 @@
 This repository is the official implementation of "A text-supervised open-vocabulary semantic segmentation method with spatial-semantic feature fusion for remote sensing images".
 
 ## Prepare dataset
-The preparation process of the dataset refers to [OVSegmentor](https://github.com/Jazzcharles/OVSegmentor). We provide the [GID dataset](https://drive.google.com/file/d/1RbSsL9_7HPPHkt_px1pYoBM9XfYwJUHV/view?usp=drive_link) divided into 256✕256 as example data to show the preprocessing process.
+The preparation process of the dataset refers to [OVSegmentor](https://github.com/Jazzcharles/OVSegmentor). We provide the [GID dataset](https://drive.google.com/file/d/1L9gXQ2sZ_A0z8240g5VIEJjJ8fZJ1v1A/view?usp=sharing) divided into 256✕256 as example data to show the preprocessing process.
 
-1. Using [Qwen3-VL](https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct) or other MLLMS to generate textual descriptions for remote sensing images. We provide pre-generated textual descriptions of 15 words and 50 words in length, as given in [train_caption_15words.csv](https://drive.google.com/file/d/1RbSsL9_7HPPHkt_px1pYoBM9XfYwJUHV/view?usp=drive_link) and [train_caption_50words.csv](https://drive.google.com/file/d/1RbSsL9_7HPPHkt_px1pYoBM9XfYwJUHV/view?usp=drive_link).
+1. Using [Qwen3-VL](https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct) or other MLLMS to generate textual descriptions for remote sensing images. We provide pre-generated textual descriptions of 15 words and 50 words in length, as given in [train_caption_15words.csv](https://drive.google.com/file/d/1L9gXQ2sZ_A0z8240g5VIEJjJ8fZJ1v1A/view?usp=sharing) and [train_caption_50words.csv](https://drive.google.com/file/d/1L9gXQ2sZ_A0z8240g5VIEJjJ8fZJ1v1A/view?usp=sharing).
 2. Using large language models such as Qwen3-VL, DeepSeek, Gemini, and GPT to extract remote sensing object entities from the textual descriptions, as shown in [geo_entities.py](data_tools/geo_entities.py).
 3. Using [data_process.py](data_tools/data_process.py) to filter GID dataset using these entities. This will generate 8 sub-files in subset/ directory. 
 ```shell 
@@ -15,7 +15,7 @@ python data_process.py --mode filter --srcdir /path/to/your/train_caption_15word
 ```shell
 python data_process.py --mode merge --dstdir /path/to/your/gid/subsets/ --remove_subfiles True
 ```
-5. Construct cross-image pairs based on the filtered data. The generated metafile is automatically saved to /path/to/your/gid_filtered_subset_pair.csv. This metafile can be used for training the model. We give the pre-generated gid_filtered_subset_pair.csv in [GID dataset](https://drive.google.com/file/d/1RbSsL9_7HPPHkt_px1pYoBM9XfYwJUHV/view?usp=drive_link).
+5. Construct cross-image pairs based on the filtered data. The generated metafile is automatically saved to /path/to/your/gid_filtered_subset_pair.csv. This metafile can be used for training the model. We give the pre-generated gid_filtered_subset_pair.csv in [GID dataset](https://drive.google.com/file/d/1L9gXQ2sZ_A0z8240g5VIEJjJ8fZJ1v1A/view?usp=sharing).
 ```shell
 python data_process.py --mode makepair --metafile /path/to/your/gid_filtered_subset.csv
 ```
