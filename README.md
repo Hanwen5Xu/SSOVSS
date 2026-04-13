@@ -9,7 +9,7 @@ The preparation process of the dataset refers to [OVSegmentor](https://github.co
 3. Using [data_process.py](data_tools/data_process.py) to filter GID dataset using these entities. This will generate 8 sub-files in subset/ directory. 
 ```shell 
 cd data_tools
-python data_process.py --mode filter --srcdir /path/to/your/train_caption_20words.csv --processor 8
+python data_process.py --mode filter --srcdir /path/to/your/train_caption_15words.csv --processor 8
 ```
 4. Next, merge these sub-files into a single metafile (and optionally delete the sub-files by passing --remove_subfiles=True).
 ```shell
