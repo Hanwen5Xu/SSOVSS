@@ -34,7 +34,7 @@ dino_path: '/path/to/your/dino_vitbase16_pretrain.pth'
 ## Group-level image-text contrastive learning
 Using [main_train.py](main_train.py) to perform text-supervised contrastive training, and the trained coarse-grained model is saved to checkpoint. We have provided a pre-trained coarse-grained model, [net_GID.pth](https://drive.google.com/file/d/1L9gXQ2sZ_A0z8240g5VIEJjJ8fZJ1v1A/view?usp=drive_link), which was trained on the GID dataset.
 
-## Fpatial-semantic feature fusion
+## Spatial-semantic feature fusion
 Using [main_fusion.py](main_fusion.py) to perform fine-level open-vocabulary semantic segmentation. Users can input custom text vocabularies to execute the inference.
 
 ## Acknowledgement
