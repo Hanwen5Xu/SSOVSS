@@ -26,7 +26,7 @@ python data_process.py --mode makepair --metafile /path/to/your/gid_filtered_sub
 ```shell
 https://dl.fbaipublicfiles.com/dino/dino_vitbase16_pretrain/dino_vitbase16_pretrain.pth
 ```
-2. Change the configs[config.yaml](configs/config.yaml) by specifying the checkpoint path.
+2. Change the configs [config.yaml](configs/config.yaml) by specifying the checkpoint path.
 ```shell
 dino_path: '/path/to/your/dino_vitbase16_pretrain.pth'
 ```
