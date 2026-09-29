@@ -12,6 +12,7 @@ data:
     label_dir: 'path/to/your/labels'
 
 model:
+  dino_path: 'path/to/dino_vitbase16_pretrain.pth'
   contrast_temperature: 0.07
 
   metaclip:
