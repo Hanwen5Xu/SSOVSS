@@ -1,0 +1,40 @@
+data:
+  img:
+    img_size: 256
+    color_jitter: 0.4
+    interpolation: 'bilinear'
+
+  text:
+    max_seq_len: 77
+
+  val:
+    img_dir: 'path/to/your/images'
+    label_dir: 'path/to/your/labels'
+
+model:
+  contrast_temperature: 0.07
+
+  metaclip:
+    model_id: 'metaclip-2-worldwide-huge-quickgelu'
+    local_v_weight: 0.3
+
+  group_vit:
+    checkpoint: 'checkpoint/net.pt'
+    embed_dim: 768
+    num_heads: [ 8, 8 ]
+    embed_factors: [ 1, 1 ]
+    depths: [ 6, 6 ]
+    num_group_tokens: [ 64, 0 ]
+    num_output_groups: [ 8 ]
+    drop_rate: 0.0
+    drop_path_rate: 0.1
+    patch_norm: False
+
+  text_encoder:
+    context_length: 77
+    width: 768
+    layers: 6
+    vocab_size: 49408
+    pretrained: True
+    fixed: True #false
+
