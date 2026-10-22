@@ -4,6 +4,8 @@ This repository is the official implementation of "A text-supervised open-vocabu
 ## Prepare dataset
 We provide the [GID dataset](https://drive.google.com/file/d/1g30ldLFhJaqPTTxPHIZYRWnREwFKZf77/view?usp=sharing) divided into 256✕256 as example data to show the preprocessing process.
 
+Additional generated textual descriptions are available on [Zenodo](https://doi.org/10.5281/zenodo.23437157).
+
 1. Using [Qwen3-VL](https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct) or other MLLMS to generate textual descriptions for remote sensing images. We provide pre-generated textual descriptions of 15 words and 50 words in length, as given in [train_caption_15words.csv](https://drive.google.com/file/d/1g30ldLFhJaqPTTxPHIZYRWnREwFKZf77/view?usp=sharing) and [train_caption_50words.csv](https://drive.google.com/file/d/1g30ldLFhJaqPTTxPHIZYRWnREwFKZf77/view?usp=sharing).
 2. Using large language models such as Qwen3-VL, DeepSeek, Gemini, and GPT to extract remote sensing object entities from the textual descriptions, as shown in [geo_entities.py](data_tools/geo_entities.py).
 3. Using [data_process.py](data_tools/data_process.py) to filter GID dataset using these entities. This will generate 8 sub-files in the `subsets/` directory.
