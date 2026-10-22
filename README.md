@@ -38,5 +38,12 @@ Run [main_train.py](main_train.py) from the repository root to perform text-supe
 ## Spatial-semantic feature fusion
 Run [main_fusion.py](main_fusion.py) from the repository root to perform fine-level open-vocabulary semantic segmentation. Set `model.group_vit.checkpoint` in [config_fusion.yaml](configs/config_fusion.yaml) to the trained model. The example reads `imgs/32_img.png`, uses the text vocabulary in [gid.json](datasets/gid.json), and saves its result to `visualization/out.png`. To use another image, change the path in `main_fusion.py`; to use another vocabulary, edit `gid.json`. For evaluation, set `data.val.img_dir` and `data.val.label_dir` in `config_fusion.yaml` and run [main_fusion_evaluate.py](main_fusion_evaluate.py).
 
+## Licensing scope
+The independently authored SSOVSS code, documentation, and released textual annotations for which the SSOVSS authors hold the necessary rights are licensed under the Creative Commons Attribution 4.0 International licence (CC BY 4.0), as provided in LICENSE.
+
+This licence does not apply to third-party source code, adaptations of third-party code, original remote sensing imagery, segmentation annotations, or third-party pretrained models. These materials remain subject to their respective original licences and terms of use.
+
+In particular, the original imagery and annotations from GID, LoveDA, and iSAID are excluded from the SSOVSS CC BY 4.0 licence. Users should obtain these datasets from their original providers and comply with the applicable terms.
+
 ## Acknowledgement
 We would like to acknowledge the contributions of public projects, such as [GroupViT](https://github.com/NVlabs/GroupViT), [ClearCLIP](https://github.com/mc-lan/ClearCLIP), [ProxyCLIP](https://github.com/mc-lan/ProxyCLIP), and [OVSegmentor](https://github.com/Jazzcharles/OVSegmentor) , whose code has been utilized in this repository.
